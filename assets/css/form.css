@@ -10,7 +10,7 @@
   }
   
   .r {
-    max-width: 50%;
+        max-width: 85vw;
     margin: 10px auto;
     padding: 10px 20px;
     background: #f4f7f8;
@@ -107,7 +107,7 @@
     text-shadow: 0 1px 0 rgba(255,255,255,0.2);
     border-radius: 100%;
   }
-  
+/*   
   @media screen and (min-width: 480px) {
   
     form {
@@ -115,4 +115,13 @@
     }
   
   }
-  
+   */
+
+   .inpt{
+    width: 200px;
+    height: 32px;
+    border-radius: 10px;
+    background-color: bisque;
+    border-color: beige;
+    font-size: 19px;
+   }
