@@ -30,7 +30,8 @@ try{
         // $sql->bindValue(":est_en_cours_de_projection" , 0 , PDO::PARAM_INT);
         $sql->execute([$Genre,$titre,$annee,$duré,$resume,$quality,0]);
     
-        header("location:../index.php");
+        $error = 1;
+        header("Location:insertfilm.php?ref=$error");
      
     }else{
         $error = 0;
