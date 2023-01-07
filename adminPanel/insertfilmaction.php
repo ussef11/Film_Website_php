@@ -2,8 +2,8 @@
 
 include('../cnx.php');
 
-//  INSERT INTO `film` (`idGenre`, `titre`, `annee`, `duré`, `resume`, `quality`,
-//          `est_en_cours_de_projection`, `createdDate`, `lastModifiedDate`) VALUES ('18', '2', 'Memory 2', '2022', '', 
+//  INSERT INTO film (idGenre, titre, annee, duré, resume, quality,
+//          est_en_cours_de_projection, createdDate, lastModifiedDate) VALUES ('18', '2', 'Memory 2', '2022', '', 
 //         ' Synopsis : D\'après le film belge La Mémoire du tueur (2003)', '5', '4k', img, '0', '2023-01-04 23:09:34', '2023-01-07 23:09:34'); 
 
 try{
@@ -18,10 +18,18 @@ try{
         
     
 
-        $sql = $conx->prepare('INSERT INTO `film` (`idGenre`, `titre`, `annee`, `duré`, `resume`, `quality`, `est_en_cours_de_projection`, `createdDate`, `lastModifiedDate`)
+        $sql = $conx->prepare('insert INTO film(idGenre, titre, annee, duré, resume, quality, est_en_cours_de_projection)
 
-        VALUES(?,?,?,?,?,?,0,year(CURRENT_DATE ()) ,year(CURRENT_DATE ()) )');
-        $sql->execute(array($Genre,$titre,$annee,,$duré,$resume,$quality));
+        VALUES(?,?,?,?,?,?,?)');
+        // $sql->bindValue(":idGenre" , $Genre , PDO::PARAM_INT);
+        // $sql->bindValue(":titre" , $titre , PDO::PARAM_STR);
+        // $sql->bindValue(":annee" , $annee , PDO::PARAM_INT);
+        // $sql->bindValue(":duré" , $duré , PDO::PARAM_INT);
+        // $sql->bindValue(":resume" , $resume , PDO::PARAM_STR);
+        // $sql->bindValue(":quality" , $quality , PDO::PARAM_STR);
+        // $sql->bindValue(":est_en_cours_de_projection" , 0 , PDO::PARAM_INT);
+        $sql->execute([$Genre,$titre,$annee,$duré,$resume,$quality]);
+    
         header("location:../index.php");
      
     }else{
@@ -33,7 +41,7 @@ try{
 
 }catch(Exception $e){
 
-    header("Location:register.php?ref=$e");
+    header("Location:insertfilm.php?ref=$e");
 }
 
 

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sign Up Form</title>
+  <title>Add Film</title>
   <link rel="stylesheet" href="https://codepen.io/gymratpacks/pen/VKzBEp#0">
   <link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="../assets/css/form.css">
@@ -30,7 +30,7 @@ $data = $conx->query("select idGenre ,libelle from genre")->fetchAll();
          `est_en_cours_de_projection`, `createdDate`, `lastModifiedDate`) VALUES ('18', '2', 'Memory 2', '2022', '', 
         ' Synopsis : D\'après le film belge La Mémoire du tueur (2003)', '5', '4k', img, '0', '2023-01-04 23:09:34', '2023-01-07 23:09:34'); -->
  
-<form action="" method="POST">
+<form action="insertfilmaction.php" method="POST">
         <fieldset>
           <label for="name">titre:</label>
           <input type="text" id="name" name="titre">
