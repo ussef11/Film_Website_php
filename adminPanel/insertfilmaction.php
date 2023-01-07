@@ -28,7 +28,7 @@ try{
         // $sql->bindValue(":resume" , $resume , PDO::PARAM_STR);
         // $sql->bindValue(":quality" , $quality , PDO::PARAM_STR);
         // $sql->bindValue(":est_en_cours_de_projection" , 0 , PDO::PARAM_INT);
-        $sql->execute([$Genre,$titre,$annee,$duré,$resume,$quality]);
+        $sql->execute([$Genre,$titre,$annee,$duré,$resume,$quality,0]);
     
         header("location:../index.php");
      
