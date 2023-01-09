@@ -115,7 +115,7 @@ if(!isset($_SESSION['admin'])){
   }
   const logoutaction = ()=>{
 
-    window.location.href ="logoutaction" ;
+    window.location.href ="logoutaction.php" ;
   }
 
 

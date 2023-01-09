@@ -14,10 +14,9 @@
 
 <?php 
 session_start();
-if(isset($_SESSION['admin']) != "admin"){
+if(!isset($_SESSION['admin'])){
   header("Location:loginadmin.php");
 }
-
 
 include('../cnx.php');
 $data = $conx->query("select idGenre ,libelle from genre")->fetchAll();

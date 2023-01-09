@@ -1,15 +1,14 @@
 <?php 
 
 session_start();
-if(isset($_SESSION['admin']) != "admin"){
+if(!isset($_SESSION['admin'])){
   header("Location:loginadmin.php");
 }
 
 include('../cnx.php');
 
 try{
-    if(isset($_POST["Genre"]) && isset($_POST["titre"]) && isset($_POST["annee"]) && isset($_POST["duré"]) && isset($_POST["resume"]) &&
-    isset($_POST["quality"])){
+   
         $Genre = $_POST["Genre"];
         $titre = $_POST["titre"];
         $annee = $_POST["annee"];
@@ -24,18 +23,15 @@ try{
         $sql->execute([$Genre,$titre,$annee,$duré,$resume,$quality,$est_en_cours_de_projection]);
     
         $secc = 1;
-        header("Location:insertfilm.php?ref=$secc");
+        header("Location:edituser.php?ref=$secc");
      
-    }else{
-        $error = 0;
-         header("Location:insertfilm.php?ref=$error");
-    }
+    
        
  
 
 }catch(Exception $e){
 
-    header("Location:insertfilm.php?ref=$e");
+    header("Location:edituser.php?ref=$e");
 }
 
 

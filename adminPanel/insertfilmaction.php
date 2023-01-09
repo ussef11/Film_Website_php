@@ -1,7 +1,8 @@
 <?php 
 
 session_start();
-if(isset($_SESSION['admin']) != "admin"){
+session_start();
+if(!isset($_SESSION['admin'])){
   header("Location:loginadmin.php");
 }
 

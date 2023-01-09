@@ -14,10 +14,9 @@
 
 <?php 
 session_start();
-if(isset($_SESSION['admin']) != "admin"){
+if(!isset($_SESSION['admin'])){
   header("Location:loginadmin.php");
 }
-
 
 include('../cnx.php');
 $data = $conx->query("select idGenre ,libelle from genre")->fetchAll();
@@ -34,7 +33,7 @@ $data = $conx->query("select idGenre ,libelle from genre")->fetchAll();
         <?php if(isset($_REQUEST["ref"])){ if($_REQUEST["ref"]==1){echo " <p class='seccssufuly'>Film has been Modified</p>" ;}}?>   
         <?php if(isset($_REQUEST["ref"])){ if($_REQUEST["ref"]==0){echo " <p class='err'>Error Please Try Againe</p>" ;}}?>   
       
-<form action="insertfilmaction.php"   enctype="multipart/form-data" method="POST">
+<form action="updatefilmaction.php"   enctype="multipart/form-data" method="POST">
         <fieldset>
           <label for="name">titre:</label>
           <input type="text" id="name" name="titre">
@@ -62,9 +61,13 @@ foreach($data as $ele){
           <?php 
 }
 ?>
+<label>cours de projection:</label>
          <input type="radio" id="development" value="1" name="est_en_cours_de_projection">
+         <label class="light" for="development">Yes</label><br>
+
          <input type="radio" id="development" value="0" name="est_en_cours_de_projection">
-          <label class="light" for="development">cours de projection</label><br>
+         <label class="light" for="development">No</label><br>
+          
 
 
 
@@ -72,7 +75,7 @@ foreach($data as $ele){
        
 
       
-<div style="text-align: center;" class="btsn">  <input class="inpt" type="submit"  value="insert film"/> </div>
+<div style="text-align: center;" class="btsn">  <input class="inpt" type="submit"  value="Update film"/> </div>
       
         </form>
       </div>
