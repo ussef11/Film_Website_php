@@ -147,7 +147,7 @@
 
             </div>
 
-            <a href=""
+            <a  href="./buyticket/ticket.php?id=<?php echo $_REQUEST["id"]; ?>"
                   class="download-btn">
               <span>Buy cinema ticket</span>
 

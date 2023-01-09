@@ -177,7 +177,7 @@
       <li>
         <div  class="movie-card">
 
-        <a href="./movie-details.php?ref=<?php echo $row["titre"] ?>&?id=<?php echo $row["idFilm"] ?>" >
+        <a href="./movie-details.php?ref=<?php echo $row["titre"] ?>&id=<?php echo $row["idFilm"] ?>" >
             <figure class="card-banner">
             <?php if($row["photo_600x900"]==null){ ?><img  alt="film_img" ><?php }else{echo '<img  src="data:image;base64,'.base64_encode($row["photo_600x900"]).'"/>'; } ?>
             </figure>

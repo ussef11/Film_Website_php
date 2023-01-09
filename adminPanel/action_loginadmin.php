@@ -10,7 +10,7 @@ if(isset($_POST["user"]) &&  isset($_POST["pass"])){
         header("Location:loginadmin.php?ref=$err");
     }else{
         session_start();
-        $_SESSION['admin'] ="admin";
+        $_SESSION['admin'] = "admin";
         header("Location:insertfilm.php");
     }
     
