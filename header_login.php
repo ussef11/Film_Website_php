@@ -18,7 +18,7 @@
         </button>
         <?php include("cnx.php");?>
 
-        <div class="lang-wrapper">
+        <!-- <div class="lang-wrapper">
           <label for="language">
             <ion-icon name="globe-outline"></ion-icon>
           </label>
@@ -31,7 +31,7 @@
           </select>
          
              
-        </div>
+        </div> -->
         <?php $sql="select sold,user from user where user ='{$_SESSION['user']}'";
           $t=$conx->query($sql); 
           while($rod=$t->fetch(PDO::FETCH_ASSOC)){ ?><spin style="  display: inline;margin-left:10px; "><strong   style="color:white;display: inline;">

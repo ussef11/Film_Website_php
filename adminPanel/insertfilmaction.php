@@ -1,9 +1,7 @@
 <?php 
 
 include('../cnx.php');
-// INSERT INTO `film` (`idFilm`, `idGenre`, `titre`, `annee`, `duré`, `resume`, `star`, `quality`, 
-// `est_en_cours_de_projection`, `createdDate`, `lastModifiedDate`) VALUES (NULL, '7', 'One Piece Film: Red',
-//  '2022', '115', ' The story is set on thworldly\"', '6.9', 'FHD', '1', '2023-01-08 15:29:09', '2023-01-08 15:29:09')
+
 try{
     if(isset($_POST["Genre"]) && isset($_POST["titre"]) && isset($_POST["annee"]) && isset($_POST["duré"]) && isset($_POST["resume"]) &&
     isset($_POST["quality"])){

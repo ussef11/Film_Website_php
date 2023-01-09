@@ -28,10 +28,7 @@ $data = $conx->query("select idGenre ,libelle from genre")->fetchAll();
 
         <?php if(isset($_REQUEST["ref"])){ if($_REQUEST["ref"]==1){echo " <p class='seccssufuly'>Film has been added</p>" ;}}?>   
         <?php if(isset($_REQUEST["ref"])){ if($_REQUEST["ref"]==0){echo " <p class='err'>Error Please Try Againe</p>" ;}}?>   
-       <!-- INSERT INTO `film` (`idFilm`, `idGenre`, `titre`, `annee`, `duré`, `resume`, `star`, `quality`, `photo_600x900`,
-         `est_en_cours_de_projection`, `createdDate`, `lastModifiedDate`) VALUES ('18', '2', 'Memory 2', '2022', '', 
-        ' Synopsis : D\'après le film belge La Mémoire du tueur (2003)', '5', '4k', img, '0', '2023-01-04 23:09:34', '2023-01-07 23:09:34'); -->
- 
+      
 <form action="insertfilmaction.php"   enctype="multipart/form-data" method="POST">
         <fieldset>
           <label for="name">titre:</label>
