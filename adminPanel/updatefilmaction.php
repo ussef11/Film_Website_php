@@ -16,12 +16,12 @@ try{
         $duré = $_POST["duré"];
         $resume = $_POST["resume"];
         $quality = $_POST["quality"];
-        $img = file_get_contents($_FILES["photo_600x900"]["tmp_name"]);
+        $est_en_cours_de_projection = $_POST["est_en_cours_de_projection"];
+       
 
-        $sql = $conx->prepare('insert INTO film(idGenre, titre, annee, duré, resume, quality, est_en_cours_de_projection,photo_600x900)
-
-        VALUES(?,?,?,?,?,?,?,?)');
-        $sql->execute([$Genre,$titre,$annee,$duré,$resume,$quality,0,addslashes($img)]);
+        $sql = $conx->prepare('update film set idGenre = ?, titre = ?, annee = ?, duré = ?, resume = ?, quality = ?, est_en_cours_de_projection = ? 
+         where idFilm ='.$_REQUEST["idFilm"]);
+        $sql->execute([$Genre,$titre,$annee,$duré,$resume,$quality,$est_en_cours_de_projection]);
     
         $secc = 1;
         header("Location:insertfilm.php?ref=$secc");

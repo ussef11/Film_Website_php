@@ -31,7 +31,7 @@ $data = $conx->query("select idGenre ,libelle from genre")->fetchAll();
       <div class="r">
         <h1> Add Film </h1>
 
-        <?php if(isset($_REQUEST["ref"])){ if($_REQUEST["ref"]==1){echo " <p class='seccssufuly'>Film has been added</p>" ;}}?>   
+        <?php if(isset($_REQUEST["ref"])){ if($_REQUEST["ref"]==1){echo " <p class='seccssufuly'>Film has been Modified</p>" ;}}?>   
         <?php if(isset($_REQUEST["ref"])){ if($_REQUEST["ref"]==0){echo " <p class='err'>Error Please Try Againe</p>" ;}}?>   
       
 <form action="insertfilmaction.php"   enctype="multipart/form-data" method="POST">
@@ -62,21 +62,14 @@ foreach($data as $ele){
           <?php 
 }
 ?>
-          <!-- <input type="radio" id="design" value="interest_design" name="user_interest">
-          <label class="light" for="design">simple</label><br>
-
-          <input type="radio" id="business" value="interest_business" name="user_interest">
-          <label class="light" for="business">Moyenne</label> -->
+         <input type="radio" id="development" value="1" name="est_en_cours_de_projection">
+         <input type="radio" id="development" value="0" name="est_en_cours_de_projection">
+          <label class="light" for="development">cours de projection</label><br>
 
 
 
         </fieldset>
-        <fieldset>
-
-          <label for="bio">Add Film</label>
-          <input type="file" id="name" name="photo_600x900">
-
-        </fieldset>
+       
 
       
 <div style="text-align: center;" class="btsn">  <input class="inpt" type="submit"  value="insert film"/> </div>

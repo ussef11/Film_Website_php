@@ -1,5 +1,9 @@
 <?php
 
+session_start();
+if(isset($_SESSION['admin']) != "admin"){
+  header("Location:loginadmin.php");
+}
 
 // $films = $conx->query("SELECT * FROM film f INNER JOIN genre g on f.idGenre = g.idGenre ")->fetchAll();
 
@@ -14,12 +18,17 @@ function fetchdatauser(){
     return $user;
 }
 
-function deleteuser($id){
+function deletefilm($id){
   include("../cnx.php");
 
  $conx->prepare('delete from film where idFilm ='.$id)->execute();
       
   
+}
+function deleteuser($id){
+  include("../cnx.php");
+ $conx->prepare('delete from user where id ='.$id)->execute();
+ 
 }
 
 
@@ -32,7 +41,9 @@ if($_GET['option'] == 'films')
 } elseif($_GET['option'] == 'user'){
     showdatauser($fetchdatauser);
 }elseif($_POST['option'] == 'delete'){
-  deleteuser($_POST['id']);
+  deletefilm($_POST['id']);
+}elseif($_POST['option'] == 'deleteuser'){
+  deleteuser($_POST['iduser']);
 }
 
 function showdatafilm($data){
@@ -112,7 +123,7 @@ function showdatauser($data){
    
 
         <div class="product-cell price">
-       <div> <button onclick="handledelete( ' . $ele['id'] . ')" class="btnaction">Delete</button></div>
+       <div> <button onclick="handledeleteuser( ' . $ele['id'] . ')" class="btnaction">Delete</button></div>
    
         </div>
 

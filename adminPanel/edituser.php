@@ -12,10 +12,12 @@
 <body>
     
 <?php
+session_start();
+if(!isset($_SESSION['admin'])){
+  header("Location:loginadmin.php");
+}
 
-// include('../cnx.php');
-// $admin = $conx->query("select user from admin where user =".$_SESSION['admin'])->fetch();
-// $useradmin = $admin;
+
 
 
 
@@ -56,10 +58,11 @@
       <div class="account-info-picture">
         <img src="https://images.unsplash.com/photo-1527736947477-2790e28f3443?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTE2fHx3b21hbnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60" alt="Account">
       </div>
-      <div class="account-info-name"> <?php echo "Admin"; ?></div>
-      <button class="account-info-more">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg>
+      <div class="account-info-name"> <?php echo $_SESSION['admin']; ?></div>
+      <button style="cursor: pointer;" onclick="logoutaction()" class="account-info-more">
+        <img src="../assets/images/logout.svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal"/>
       </button>
+
     </div>
   </div>
   <div class="app-content">
@@ -107,6 +110,14 @@
   const handlehome = ()=>{
     window.location.href ="../index.php" ;
   }
+  const handleupdate = (id)=>{
+    window.location.href =`updatefilm.php?idFilm=${id}` ;
+  }
+  const logoutaction = ()=>{
+
+    window.location.href ="logoutaction" ;
+  }
+
 
 
 
@@ -114,18 +125,35 @@
         window.location.href ="insertfilm.php" ;
     }
 
-    const handledelete =(uderid)=>{
+    const handledelete =(idfilm)=>{
        if(window.confirm("Really go to delete this ?")){
         $.ajax({
     method: 'POST',
     url: 'function.php',
     dataType :"html",
     data : {option : "delete" ,
-      id : uderid
+      id : idfilm
                     
     },
     success:                
       alert("Film has been deleted")
+   
+  });
+       }
+        
+    }
+    const handledeleteuser =(userid)=>{
+       if(window.confirm("Really go to delete this ?")){
+        $.ajax({
+    method: 'POST',
+    url: 'function.php',
+    dataType :"html",
+    data : {option : "deleteuser" ,
+      iduser : userid
+                    
+    },
+    success:                
+      alert("User has been deleted")
    
   });
        }

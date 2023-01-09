@@ -1,6 +1,7 @@
 <?php
+session_start();
 if(isset($_SESSION['user']) == "admin"){
-  header("Location:index.php");
+  header("Location:edituser.php");
 }
 ?>
 
