@@ -118,7 +118,7 @@ if(!isset($_SESSION['admin'])){
 <script>
 
   const handlehome = ()=>{
-    window.location.href ="../index.php" ;
+    window.location.href ="index.php" ;
   }
   const handleupdate = (id)=>{
     window.location.href =`updatefilm.php?idFilm=${id}` ;
