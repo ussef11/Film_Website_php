@@ -1,7 +1,7 @@
 <?php 
 
 session_start();
-session_start();
+
 if(!isset($_SESSION['admin'])){
   header("Location:loginadmin.php");
 }
@@ -22,7 +22,7 @@ try{
         $sql = $conx->prepare('insert INTO film(idGenre, titre, annee, duré, resume, quality, est_en_cours_de_projection,photo_600x900)
 
         VALUES(?,?,?,?,?,?,?,?)');
-        $sql->execute([$Genre,$titre,$annee,$duré,$resume,$quality,0,addslashes($img)]);
+        $sql->execute([$Genre,$titre,$annee,$duré,$resume,$quality,1,addslashes($img)]);
     
         $secc = 1;
         header("Location:insertfilm.php?ref=$secc");

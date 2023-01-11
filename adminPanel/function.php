@@ -31,6 +31,9 @@ function deleteuser($id){
  
 }
 
+// Full texts	idProgramme	idFilm	heure_debut	num_salle	createdDate	lastModifiedDate 
+
+
 
 $fetchdatafilm = fetchdatafilm();
 $fetchdatauser = fetchdatauser();
@@ -45,6 +48,10 @@ if($_GET['option'] == 'films')
 }elseif($_POST['option'] == 'deleteuser'){
   deleteuser($_POST['iduser']);
 }
+// elseif($_POST["option"] == 'programme'){
+//   addprgam();
+  
+// }
 
 function showdatafilm($data){
  foreach($data as $ele) { 
@@ -85,6 +92,7 @@ function showdatafilm($data){
  }
 
 }
+
 
 
 

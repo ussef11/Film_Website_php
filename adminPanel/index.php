@@ -51,6 +51,12 @@ if(!isset($_SESSION['admin'])){
           <span >user</span>
         </a>
       </li>
+      <li id="Programme" class="sidebar-list-item">
+        <a onclick="handleprogramme('programme')" href="#">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-pie-chart"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></svg>
+          <span >Add Programme</span>
+        </a>
+      </li>
     
  
     </ul>
@@ -85,16 +91,13 @@ if(!isset($_SESSION['admin'])){
         </button>
       </div>
     </div>
+
+
     <div class="products-area-wrapper gridView">
     
 
 
 
-
-<!-- 
-      <div id="products-row" class="products-row">
-      
-      </div> -->
   
 
       
@@ -162,36 +165,60 @@ if(!isset($_SESSION['admin'])){
     
     const handleuser =(val)=>{
 
-        $.ajax({
-    method: 'GET',
-    url: 'function.php',
-    dataType :"html",
-    data : {option : val},
-    success: function(data){                    
-            $(".products-area-wrapper").html(data); 
-    }
-  });
+$.ajax({
+method: 'GET',
+url: 'function.php',
+dataType :"html",
+data : {option : val},
+success: function(data){                    
+    $(".products-area-wrapper").html(data); 
+}
+});
 
-  document.querySelector("#user").classList.add("active");
-  document.querySelector("#film").classList.remove("active");
+document.querySelector("#user").classList.add("active");
+document.querySelector("#film").classList.remove("active");
+document.querySelector("#Programme").classList.remove("active");
+document.querySelector(".products-area-wrapper").classList.remove("addcenter");
+
+}
+const handlefilms =(val)=>{
+
+$.ajax({
+method: 'GET',
+url: 'function.php',
+dataType :"html",
+data : {option : val},
+success: function(data){                    
+    $(".products-area-wrapper").html(data); 
+}
+});
+
+document.querySelector("#film").classList.add("active");
+document.querySelector("#user").classList.remove("active");
+document.querySelector("#Programme").classList.remove("active");
+document.querySelector(".products-area-wrapper").classList.remove("addcenter");
+
+}
 
 
-    }
-    const handlefilms =(val)=>{
+    const handleprogramme =(val)=>{
 
     $.ajax({
-    method: 'GET',
-    url: 'function.php',
+    method: 'POST',
+    url: 'programmeAction.php',
     dataType :"html",
     data : {option : val},
     success: function(data){                    
             $(".products-area-wrapper").html(data); 
     }
   });
+  document.querySelector("#film").classList.remove("active");
+document.querySelector("#user").classList.remove("active");
+document.querySelector("#Programme").classList.add("active");
+document.querySelector(".products-area-wrapper").classList.add("addcenter");
+}
 
-  document.querySelector("#film").classList.add("active");
-  document.querySelector("#user").classList.remove("active");
-    }
+ 
 </script>
 
 </body>

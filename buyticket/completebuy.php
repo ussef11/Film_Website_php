@@ -17,8 +17,10 @@ include('../cnx.php');
 session_start();
 
 $titre = $conx->query("select titre , price from film where idFilm =".$_REQUEST['idfilm'])->fetch();
+$programme = $conx->query("select heure_debut , num_salle from programme where idFilm =".$_REQUEST['idfilm'])->fetch();
 $sold = $conx->query("select sold , email from user where  user ='{$_SESSION['user']}'")->fetch();
 $adresse = $conx->query("select adresse from user where  user ='{$_SESSION['user']}'")->fetch();
+
 
 
 ?>
@@ -54,12 +56,11 @@ $adresse = $conx->query("select adresse from user where  user ='{$_SESSION['user
 				
 
 				<div class="content-box">
-					<h4 class="content-box-title">Primary Contact</h4>
+					<h4 class="content-box-title">Programme Info</h4>
 					<address>
-						<?php echo $adresse["adresse"] ?>  <br />
-						<!-- 1234 Really Long Street<br />
-						Ste #302<br />
-						Dallas, TX 75202 -->
+					 SALLE NUMBER :	<?php echo $programme["num_salle"] ?>  <br />
+					 START HOURSE :	<?php echo $programme["heure_debut"] ?><br />
+					
 					</address>
 				</div>
 

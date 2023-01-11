@@ -592,3 +592,48 @@
 	 opacity: 0.6;
 }
  
+
+h1{
+	color: #fff;
+}
+
+.inp{
+	margin: 25px;
+}
+
+.addpro{
+	text-align: center;
+	border: 1px solid white;
+    width: 100%;
+    margin-top: 82px;
+}
+
+.lblfilm{
+	color: #fff;
+	margin-right: 150px;
+}
+.input{
+	width: 152px;
+	height: 26px;
+    background-color: #f1f1f100;
+    color: wheat;
+    border-radius: 6px;
+}
+.lab{
+	width: 100px;
+}
+
+.addcenter{
+	justify-content: center;
+}
+
+.submit{
+	cursor: pointer;
+	color: white;
+	height: 40px;
+    border-radius: 14px;
+    font-weight: 700;
+    font-family: inherit;
+    background-color: #387fff;
+    margin: 33px;
+}

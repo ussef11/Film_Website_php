@@ -11,7 +11,7 @@ if(isset($_POST["user"]) &&  isset($_POST["pass"])){
     }else{
         session_start();
         $_SESSION['admin'] = "admin";
-        header("Location:edituser.php");
+        header("Location:index.php");
     }
     
 }else{

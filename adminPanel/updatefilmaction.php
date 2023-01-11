@@ -23,7 +23,7 @@ try{
         $sql->execute([$Genre,$titre,$annee,$duré,$resume,$quality,$est_en_cours_de_projection]);
     
         $secc = 1;
-        header("Location:edituser.php?ref=$secc");
+        header("Location:index.php?ref=$secc");
      
     
        
